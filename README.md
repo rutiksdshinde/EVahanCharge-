@@ -5,7 +5,10 @@ shared design system so every page looks and behaves consistently. All original
 functionality (station search, route planning, traffic monitor, cost calculator,
 chatbot, theme toggle) is preserved and reconnected to the new UI.
 
-
+## Links
+- **Portfolio:** https://rutikshinde.netlify.app
+- **LinkedIn:** https://www.linkedin.com/in/rutik-shinde-09a438237
+- **GitHub:** https://github.com/rutiksdshinde
 
 
 ## ⚠️ Do this first: rotate your API keys
