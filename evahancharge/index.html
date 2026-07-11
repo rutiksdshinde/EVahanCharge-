@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070a12">
+<link rel="icon" href="image/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="chatbot.css">
+<title>EVahanCharge | India's Intelligent EV Charging Network</title>
+<meta name="description" content="Find EV charging stations, plan long-distance routes with charging stops, monitor traffic, and estimate charging cost — all in one place.">
+</head>
+<body>
+<div class="pageload"><div class="loader-ring"></div></div>
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><i class="fa-solid fa-bolt"></i></span>
+      EVahanCharge
+    </a>
+    <div class="nav-links" id="nav-menu">
+      <a href="index.html" class="active">Home</a>
+      <a href="ev_search.html">Find Stations</a>
+      <a href="app_benefits.html">Route Planner</a>
+      <a href="ev_calculator.html">Cost Calculator</a>
+      <a href="app_benefits.html">Traffic</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-actions">
+      <button id="theme-toggle" class="icon-btn" title="Toggle theme"><i class="fas fa-moon"></i></button>
+      <a href="ev_search.html" class="btn btn-primary btn-sm nav-cta"><i class="fa-solid fa-charging-station"></i> Find a Charger</a>
+      <button class="nav-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-blob b1"></div>
+  <div class="hero-blob b2"></div>
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow reveal in"><i class="fa-solid fa-satellite-dish"></i> India's Intelligent EV Network</div>
+      <h1 class="hero-title reveal in reveal-delay-1">Never worry about<br><span class="grad-text">range anxiety</span> again.</h1>
+      <p class="hero-desc reveal in reveal-delay-2">EVahanCharge finds live charging stations, plans long-distance routes with automatic charging stops, tracks traffic in real time, and tells you exactly what your trip will cost &mdash; all in one place.</p>
+      <div class="hero-cta reveal in reveal-delay-3">
+        <a href="ev_search.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-magnifying-glass-location"></i> Find a Charging Station</a>
+        <a href="app_benefits.html" class="btn btn-ghost btn-lg"><i class="fa-solid fa-route"></i> Plan a Route</a>
+        <a href="app_benefits.html" class="btn btn-outline btn-lg"><i class="fa-solid fa-mobile-screen-button"></i> Download App</a>
+      </div>
+      <div class="hero-stats reveal in reveal-delay-4">
+        <div class="hero-stat"><b data-count="50000" data-suffix="+">0</b><span>Monthly EV drivers</span></div>
+        <div class="hero-stat"><b data-count="4500" data-suffix="+">0</b><span>Cities covered</span></div>
+        <div class="hero-stat"><b data-count="15" data-suffix="+">0</b><span>Charging networks</span></div>
+      </div>
+    </div>
+    <div class="hero-visual reveal in reveal-delay-2">
+      <div class="hv-main"><img src="image/map.jpg" alt="Live EV charging map"></div>
+      <div class="hv-pulse" style="top:38%; left:46%;"></div>
+      <div class="hv-card" style="top:6%; left:-6%; animation-delay:-1s;">
+        <div class="hv-icon" style="background:var(--grad-brand-soft); color:var(--accent);"><i class="fa-solid fa-charging-station"></i></div>
+        <div><b style="display:block; font-size:.85rem;">Koramangala Hub</b><span style="font-size:.75rem; color:var(--text-faint);">6 connectors available</span></div>
+      </div>
+      <div class="hv-card" style="bottom:8%; right:-8%; animation-delay:-3s;">
+        <div class="hv-icon" style="background:rgba(59,130,246,.15); color:var(--accent-2);"><i class="fa-solid fa-bolt"></i></div>
+        <div><b style="display:block; font-size:.85rem;">42 min to full</b><span style="font-size:.75rem; color:var(--text-faint);">DC Fast · 60kW</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">What EVahanCharge does</div>
+      <h2 class="section-title">Everything for your EV journey,<br>in one dashboard.</h2>
+      <p class="section-desc">From finding a plug to knowing what it'll cost &mdash; EVahanCharge handles the whole trip.</p>
+    </div>
+    <div class="grid grid-3">
+      <a href="ev_search.html" class="card reveal" style="text-decoration:none;">
+        <div class="card-icon"><i class="fa-solid fa-magnifying-glass-location"></i></div>
+        <h3>Station Finder</h3>
+        <p>Search nearby charging stations by radius and see live connector availability right on the map.</p>
+      </a>
+      <a href="app_benefits.html" class="card reveal reveal-delay-1" style="text-decoration:none;">
+        <div class="card-icon" style="background:rgba(59,130,246,.14); color:var(--accent-2);"><i class="fa-solid fa-route"></i></div>
+        <h3>Route Planner</h3>
+        <p>Plan long-distance trips with automatic, battery-aware charging stop recommendations.</p>
+      </a>
+      <a href="app_benefits.html" class="card reveal reveal-delay-2" style="text-decoration:none;">
+        <div class="card-icon" style="background:rgba(255,181,71,.14); color:var(--accent-warn);"><i class="fa-solid fa-traffic-light"></i></div>
+        <h3>Traffic Monitor</h3>
+        <p>Live traffic flow and incident overlays so you know what's ahead before you leave.</p>
+      </a>
+      <a href="ev_calculator.html" class="card reveal reveal-delay-3" style="text-decoration:none;">
+        <div class="card-icon" style="background:rgba(167,139,250,.14); color:var(--accent-3);"><i class="fa-solid fa-calculator"></i></div>
+        <h3>Cost Calculator</h3>
+        <p>Estimate energy needed and charging cost for any trip using your vehicle's efficiency.</p>
+      </a>
+      <a href="index.html#chat" class="card reveal reveal-delay-4" style="text-decoration:none;" onclick="document.getElementById('chat-toggle-btn').click(); return false;">
+        <div class="card-icon" style="background:rgba(255,93,122,.14); color:var(--accent-danger);"><i class="fa-solid fa-comment-dots"></i></div>
+        <h3>EV Assistant</h3>
+        <p>Ask questions about charging, routes and EV tech, any time, from any page.</p>
+      </a>
+      <a href="app_benefits.html" class="card reveal reveal-delay-1" style="text-decoration:none;">
+        <div class="card-icon" style="background:rgba(34,255,176,.14); color:var(--accent);"><i class="fa-solid fa-mobile-screen"></i></div>
+        <h3>Mobile App</h3>
+        <p>Take EVahanCharge on the road &mdash; the same trip tools, optimized for your phone.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg-alt);">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">How it works</div>
+      <h2 class="section-title">Plan a trip in three steps</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <h3>Tell us where you're headed</h3>
+        <p>Type your start and destination &mdash; smart autocomplete finds the exact spot instantly.</p>
+      </div>
+      <div class="step reveal reveal-delay-1">
+        <h3>We map the charging stops</h3>
+        <p>EVahanCharge calculates your route and slots in charging stops based on your vehicle's range.</p>
+      </div>
+      <div class="step reveal reveal-delay-2">
+        <h3>Drive with confidence</h3>
+        <p>Follow live traffic, connector availability and cost estimates the whole way there.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-band reveal">
+      <div class="eyebrow" style="margin-bottom:18px;">Ready when you are</div>
+      <h2>Find your next charging stop in seconds.</h2>
+      <p>No sign-up required &mdash; just search, plan, and go.</p>
+      <div class="hero-cta" style="justify-content:center;">
+        <a href="ev_search.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-bolt"></i> Get Started Free</a>
+        <a href="about.html" class="btn btn-outline btn-lg">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <span class="brand-mark"><i class="fa-solid fa-bolt"></i></span>
+          EVahanCharge
+        </a>
+        <p>Building India's electric future with smart infrastructure, live routing and verified charging data.</p>
+        <div class="socials">
+          <a href="https://github.com/rutiksdshinde" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/rutik-shinde-09a438237/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="mailto:support@evahancharge.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="ev_search.html">Find Stations</a></li>
+          <li><a href="app_benefits.html">Route Planner</a></li>
+          <li><a href="app_benefits.html">Traffic Monitor</a></li>
+          <li><a href="ev_calculator.html">Cost Calculator</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="app_benefits.html">Mobile App</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span class="js-year">2026</span> EVahanCharge Technologies. All rights reserved.</span>
+      <span>Made with <i class="fa-solid fa-bolt" style="color:var(--accent)"></i> in Mumbai, India</span>
+    </div>
+  </div>
+</footer>
+<button id="chat-toggle-btn" title="Chat with EV Assistant" onclick="toggleChat()"><i class="fas fa-comment-dots"></i></button>
+<div id="chat-window" class="chat-hidden">
+  <div class="chat-header">
+    <span><i class="fa-solid fa-bolt"></i> EV Assistant</span>
+    <button onclick="toggleChat()" class="close-chat">&times;</button>
+  </div>
+  <div id="chat-messages"></div>
+  <div id="typing-indicator" class="typing-indicator" style="display:none;">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="chat-input-area">
+    <input type="text" id="user-input" placeholder="Ask about charging, routes, cost..." onkeypress="handleEnter(event)">
+    <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+  </div>
+</div>
+<script src="config.js"></script>
+<script src="theme-toggle.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="chatbot.js"></script>
+</body>
+</html>

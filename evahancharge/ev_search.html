@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070a12">
+<link rel="icon" href="image/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="chatbot.css">
+<title>Find EV Charging Stations Near You | EVahanCharge</title>
+<meta name="description" content="Search nearby EV charging stations by radius and see live connector availability on an interactive map.">
+<script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.14.0/maps/maps-web.min.js"></script>
+<script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.14.0/services/services-web.min.js"></script>
+<link rel="stylesheet" href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.14.0/maps/maps.css">
+<style>
+.finder-wrap{ position:relative; height:100vh; min-height:640px; padding-top:0; }
+#map{ position:absolute; inset:0; width:100%; height:100%; }
+.finder-panel{
+  position:absolute; top:110px; left:24px; z-index:20; width:380px; max-width:calc(100vw - 48px);
+  padding:26px; display:flex; flex-direction:column; gap:16px;
+}
+.finder-panel h1{ font-size:1.5rem; font-weight:800; }
+.finder-panel p.hint{ color:var(--text-dim); font-size:.9rem; margin-top:-8px;}
+.autoc-wrap{ position:relative; }
+#location-suggestions{
+  position:absolute; top:calc(100% + 6px); left:0; right:0; z-index:40;
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm);
+  box-shadow:var(--shadow-md); max-height:240px; overflow-y:auto; display:none;
+}
+#location-suggestions .suggestion-item{ padding:11px 14px; font-size:.88rem; cursor:pointer; border-bottom:1px solid var(--border-soft); }
+#location-suggestions .suggestion-item:last-child{ border-bottom:none; }
+#location-suggestions .suggestion-item:hover{ background:var(--surface-2); color:var(--accent); }
+.finder-legend{ position:absolute; bottom:26px; left:24px; z-index:20; display:flex; gap:10px; flex-wrap:wrap; }
+@media (max-width: 860px){
+  .finder-wrap{ height:auto; min-height:0; }
+  #map{ position:relative; height:60vh; min-height:380px; }
+  .finder-panel{ position:relative; top:auto; left:auto; width:auto; margin:96px 16px 16px; }
+  .finder-legend{ position:relative; bottom:auto; left:auto; margin:0 16px 24px; }
+}
+@media (max-width: 480px){
+  .finder-panel{ padding:20px; margin:88px 12px 12px; gap:14px; }
+  .finder-panel h1{ font-size:1.28rem; }
+  #map{ height:52vh; min-height:300px; }
+}
+</style>
+</head>
+<body class="no-hero">
+<div class="pageload"><div class="loader-ring"></div></div>
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><i class="fa-solid fa-bolt"></i></span>
+      EVahanCharge
+    </a>
+    <div class="nav-links" id="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="ev_search.html" class="active">Find Stations</a>
+      <a href="app_benefits.html">Route Planner</a>
+      <a href="ev_calculator.html">Cost Calculator</a>
+      <a href="app_benefits.html">Traffic</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-actions">
+      <button id="theme-toggle" class="icon-btn" title="Toggle theme"><i class="fas fa-moon"></i></button>
+      <a href="ev_search.html" class="btn btn-primary btn-sm nav-cta"><i class="fa-solid fa-charging-station"></i> Find a Charger</a>
+      <button class="nav-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<div class="finder-wrap">
+  <div id="map"></div>
+  <div class="finder-panel card reveal in">
+    <div class="eyebrow" style="width:fit-content;"><i class="fa-solid fa-charging-station"></i> Station Finder</div>
+    <h1>Find a charger near you</h1>
+    <p class="hint">Type a city or area, pick a radius, and we'll drop live pins on every EV station nearby.</p>
+    <div class="field autoc-wrap" style="margin-bottom:0;">
+      <label for="location">City or area</label>
+      <input class="input-box" id="location" type="text" placeholder="e.g. Indiranagar, Bengaluru" autocomplete="off">
+      <div id="location-suggestions" class="location-suggestions"></div>
+    </div>
+    <div class="field" style="margin-bottom:0;">
+      <label for="distance">Search radius (km)</label>
+      <input class="input-box" id="distance" type="number" value="10" min="1" max="100">
+    </div>
+    <button class="btn btn-primary btn-block" onclick="findLocation()"><i class="fa-solid fa-magnifying-glass-location"></i> Search Stations</button>
+  </div>
+  <div class="finder-legend">
+    <span class="tag accent"><i class="fa-solid fa-circle" style="font-size:.5rem;"></i> Available</span>
+    <span class="tag"><i class="fa-solid fa-circle" style="font-size:.5rem;"></i> Occupied</span>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <span class="brand-mark"><i class="fa-solid fa-bolt"></i></span>
+          EVahanCharge
+        </a>
+        <p>Building India's electric future with smart infrastructure, live routing and verified charging data.</p>
+        <div class="socials">
+          <a href="https://github.com/rutiksdshinde" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/rutik-shinde-09a438237/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="mailto:support@evahancharge.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="ev_search.html">Find Stations</a></li>
+          <li><a href="app_benefits.html">Route Planner</a></li>
+          <li><a href="app_benefits.html">Traffic Monitor</a></li>
+          <li><a href="ev_calculator.html">Cost Calculator</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="app_benefits.html">Mobile App</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span class="js-year">2026</span> EVahanCharge Technologies. All rights reserved.</span>
+      <span>Made with <i class="fa-solid fa-bolt" style="color:var(--accent)"></i> in Mumbai, India</span>
+    </div>
+  </div>
+</footer>
+<button id="chat-toggle-btn" title="Chat with EV Assistant" onclick="toggleChat()"><i class="fas fa-comment-dots"></i></button>
+<div id="chat-window" class="chat-hidden">
+  <div class="chat-header">
+    <span><i class="fa-solid fa-bolt"></i> EV Assistant</span>
+    <button onclick="toggleChat()" class="close-chat">&times;</button>
+  </div>
+  <div id="chat-messages"></div>
+  <div id="typing-indicator" class="typing-indicator" style="display:none;">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="chat-input-area">
+    <input type="text" id="user-input" placeholder="Ask about charging, routes, cost..." onkeypress="handleEnter(event)">
+    <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+  </div>
+</div>
+<script src="config.js"></script>
+<script src="theme-toggle.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="chatbot.js"></script>
+<script src="ev_search.js"></script>
+</body>
+</html>

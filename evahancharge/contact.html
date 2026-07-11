@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070a12">
+<link rel="icon" href="image/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="chatbot.css">
+<title>Contact EVahanCharge | We're Here to Help</title>
+<meta name="description" content="Get in touch with the EVahanCharge team for support, partnerships, or feedback.">
+</head>
+<body>
+<div class="pageload"><div class="loader-ring"></div></div>
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><i class="fa-solid fa-bolt"></i></span>
+      EVahanCharge
+    </a>
+    <div class="nav-links" id="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="ev_search.html">Find Stations</a>
+      <a href="app_benefits.html">Route Planner</a>
+      <a href="ev_calculator.html">Cost Calculator</a>
+      <a href="app_benefits.html">Traffic</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-actions">
+      <button id="theme-toggle" class="icon-btn" title="Toggle theme"><i class="fas fa-moon"></i></button>
+      <a href="ev_search.html" class="btn btn-primary btn-sm nav-cta"><i class="fa-solid fa-charging-station"></i> Find a Charger</a>
+      <button class="nav-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="eyebrow reveal in"><i class="fa-solid fa-comments"></i> Get in Touch</div>
+    <h1 class="reveal in reveal-delay-1">We're here to <span class="grad-text">help</span></h1>
+    <p class="reveal in reveal-delay-2">Have questions about EV charging? Reach out to our team &mdash; we usually reply within a day.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:20px;">
+  <div class="container">
+    <div class="grid grid-2" style="gap:40px; align-items:flex-start;">
+      <div class="grid" style="gap:20px;">
+        <div class="card reveal">
+          <div class="card-icon"><i class="fa-solid fa-envelope"></i></div>
+          <h3>Email Us</h3>
+          <p>Send us an email anytime<br><a href="mailto:support@evahancharge.com" style="color:var(--accent); text-decoration:none;">support@evahancharge.com</a></p>
+        </div>
+        <div class="card reveal reveal-delay-1">
+          <div class="card-icon" style="background:rgba(59,130,246,.14); color:var(--accent-2);"><i class="fa-solid fa-phone"></i></div>
+          <h3>Call Us</h3>
+          <p>Mon &ndash; Fri, 9AM &ndash; 6PM IST<br>+91 9226774305</p>
+        </div>
+        <div class="card reveal reveal-delay-2">
+          <div class="card-icon" style="background:rgba(167,139,250,.14); color:var(--accent-3);"><i class="fa-solid fa-location-dot"></i></div>
+          <h3>Visit Us</h3>
+          <p>Our headquarters<br>Mumbai, India</p>
+        </div>
+        <div class="card reveal reveal-delay-3">
+          <div class="card-icon" style="background:rgba(34,255,176,.14); color:var(--accent);"><i class="fa-brands fa-whatsapp"></i></div>
+          <h3>WhatsApp</h3>
+          <p>Quick chat support<br>+91 9226774305</p>
+        </div>
+      </div>
+
+      <div class="card reveal reveal-delay-1" style="padding:36px;">
+        <h3 style="font-size:1.3rem; margin-bottom:22px;">Send us a message</h3>
+        <form onsubmit="return handleContactSubmit(event)">
+          <div class="field"><label for="c-name">Full Name</label><input id="c-name" type="text" required placeholder="Your name"></div>
+          <div class="field"><label for="c-email">Email Address</label><input id="c-email" type="email" required placeholder="you@example.com"></div>
+          <div class="field">
+            <label for="c-subject">Subject</label>
+            <select id="c-subject">
+              <option>General Inquiry</option>
+              <option>Technical Support</option>
+              <option>Partnership</option>
+              <option>Feedback</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field"><label for="c-message">Message</label><textarea id="c-message" required placeholder="How can we help?"></textarea></div>
+          <button type="submit" class="btn btn-primary btn-block"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <span class="brand-mark"><i class="fa-solid fa-bolt"></i></span>
+          EVahanCharge
+        </a>
+        <p>Building India's electric future with smart infrastructure, live routing and verified charging data.</p>
+        <div class="socials">
+          <a href="https://github.com/rutiksdshinde" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/rutik-shinde-09a438237/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="mailto:support@evahancharge.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="ev_search.html">Find Stations</a></li>
+          <li><a href="app_benefits.html">Route Planner</a></li>
+          <li><a href="app_benefits.html">Traffic Monitor</a></li>
+          <li><a href="ev_calculator.html">Cost Calculator</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="app_benefits.html">Mobile App</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span class="js-year">2026</span> EVahanCharge Technologies. All rights reserved.</span>
+      <span>Made with <i class="fa-solid fa-bolt" style="color:var(--accent)"></i> in Mumbai, India</span>
+    </div>
+  </div>
+</footer>
+<button id="chat-toggle-btn" title="Chat with EV Assistant" onclick="toggleChat()"><i class="fas fa-comment-dots"></i></button>
+<div id="chat-window" class="chat-hidden">
+  <div class="chat-header">
+    <span><i class="fa-solid fa-bolt"></i> EV Assistant</span>
+    <button onclick="toggleChat()" class="close-chat">&times;</button>
+  </div>
+  <div id="chat-messages"></div>
+  <div id="typing-indicator" class="typing-indicator" style="display:none;">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="chat-input-area">
+    <input type="text" id="user-input" placeholder="Ask about charging, routes, cost..." onkeypress="handleEnter(event)">
+    <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+  </div>
+</div>
+<script src="config.js"></script>
+<script src="theme-toggle.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="chatbot.js"></script>
+<script>
+function handleContactSubmit(e){
+  e.preventDefault();
+  const btn = e.target.querySelector('button[type="submit"]');
+  const original = btn.innerHTML;
+  btn.innerHTML = '<i class="fa-solid fa-check"></i> Message sent!';
+  btn.disabled = true;
+  setTimeout(() => { btn.innerHTML = original; btn.disabled = false; e.target.reset(); }, 2200);
+  return false;
+}
+</script>
+</body>
+</html>
