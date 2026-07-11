@@ -74,3 +74,4 @@ serve the folder with any static server:
 Note: station search, route planning, and traffic require a valid TomTom key
 in `config.js`; the chatbot needs a valid key too (or you can adapt it to a
 free/local model).
+<img width="1920" height="1080" alt="Screenshot (556)" src="https://github.com/user-attachments/assets/e1c6eef3-d93f-4c67-aa02-078ddb97fbe9" />
